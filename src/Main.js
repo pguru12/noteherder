@@ -1,16 +1,15 @@
 import React from 'react'
 import './Main.css'
-
-import Sidebar from './SideBar'
+import Sidebar from './Sidebar'
 import NoteList from './NoteList'
 import NoteForm from './NoteForm'
-import './Main.css'
 
-const Main = () => {
+const Main = (props) => {
+    props.notes
     return (
         <div className="Main">
             <Sidebar/>
-            <NoteList/>
+            <NoteList notes={props.notes}/>
             <NoteForm/>
         </div>
     )

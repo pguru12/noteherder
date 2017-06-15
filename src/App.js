@@ -24,13 +24,18 @@ class App extends Component {
       },
     }
   //  this.notes['note-1']
+  }
 
+  saveNote(note){
+    const notes = {...this.state.notes}
+    notes[note.id] = note
+    this.setState({  notes })
   }
 
   render() {
     return (
       <div className="App">
-        <Main notes={this.state.notes}/>
+        <Main notes={this.state.notes} saveNote={this.saveNote}/>
       </div>
     );
   }

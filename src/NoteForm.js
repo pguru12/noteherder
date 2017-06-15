@@ -3,7 +3,7 @@ import './NoteForm.css'
 
 const NoteForm = () => {
     return (
-    <div class="NoteForm">
+    <div className="NoteForm">
         <form>
           <p>
             <input type="text" name="title" placeholder="Title your note" value=""/>

@@ -5,6 +5,7 @@ import Sidebar from './Sidebar'
 import NoteList from './NoteList'
 import NoteForm from './NoteForm'
 import Main from './Main'
+import SignIn from './SignIn'
 import base from './base'
 
 class App extends Component {
@@ -43,10 +44,18 @@ componentWillMount(){
     this.setState({  notes })
   }
 
+  signedIn = () => {
+    return false
+  }
+
+  renderMain=()=>{
+    return <Main notes={this.state.notes} saveNote={this.saveNote}/>
+  }
+
   render() {
     return (
       <div className="App">
-        <Main notes={this.state.notes} saveNote={this.saveNote}/>
+        { this.signedIn() ? this.renderMain() : <SignIn /> }
       </div>
     );
   }

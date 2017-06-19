@@ -44,6 +44,12 @@ componentWillMount(){
     this.setState({  notes })
   }
 
+  removeNote = (note) => {
+    const notes = {...this.state.notes}
+    notes[note.id] = null
+    this.setState({ notes })
+  }
+
   signedIn = () => {
     return this.state.uid
   }
@@ -55,7 +61,7 @@ componentWillMount(){
           this.authHander(user)
         }
         else {
-          this.setState({uid: null})
+          this.setState({uid: null, notes: {} })
         }
       }
     )
@@ -63,7 +69,7 @@ componentWillMount(){
 
   signOut = () => {
     auth.signOut().
-    then(this.setState({ uid: null }))
+    then(()=>{base.removeBinding(this.ref)this.setState({})})
   }
 
   authHander = (user) => {
@@ -72,11 +78,16 @@ componentWillMount(){
   }
 
   renderMain=()=>{
+    const actions = {
+      saveNote: this.saveNote,
+      removeNote: this.removeNote,
+    }
+
     return (
-    <div>
-      
-    <Main notes={this.state.notes} saveNote={this.saveNote}/>
-    </div>
+      <div className="Main">
+        <Sidebar />
+        <NoteList />
+      </div>
     )
   }
 

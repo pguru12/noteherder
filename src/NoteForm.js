@@ -30,6 +30,10 @@ class NoteForm extends Component {
       this.setState({note})
     }
 
+    handleRemove = (ev) => {
+      this.props.removeNote(this.state.note)
+    }
+
     render(){
     return (
     <div className="NoteForm">
@@ -41,6 +45,9 @@ class NoteForm extends Component {
             <textarea name="body" placeholder="Just start typing..." onChange={this.handleChanges} value={this.state.note.title}></textarea>
           </p>
           <button type="submit"></button>
+          <button>
+            <i className="fa fa-trash-on"></i>
+          </button>
         </form>
       </div>
     )

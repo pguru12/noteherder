@@ -48,12 +48,27 @@ componentWillMount(){
     return this.state.uid
   }
 
+  componentWillMount(){
+    auth.onAuthStateChanged(
+      (user) => {
+        if (user){
+          this.authHander(user)
+        }
+        else {
+          this.setState({uid: null})
+        }
+      }
+    )
+  }
+
   signOut = () => {
-    this.setState({ uid: null })
+    auth.signOut().
+    then(this.setState({ uid: null }))
   }
 
   authHander = (user) => {
-    this.setState({ uid: user.uid })
+    this.setState(
+      { uid: user.uid })
   }
 
   renderMain=()=>{

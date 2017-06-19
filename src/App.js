@@ -5,6 +5,7 @@ import Sidebar from './Sidebar'
 import NoteList from './NoteList'
 import NoteForm from './NoteForm'
 import Main from './Main'
+import base from './base'
 
 class App extends Component {
   constructor(){
@@ -24,7 +25,17 @@ class App extends Component {
       },
     }
   //  this.notes['note-1']
-  }
+}
+
+componentWillMount(){
+  base.syncState(
+    'notes',
+    {
+      context: this,
+      state: 'notes',
+    }
+  )
+}
 
   saveNote(note){
     const notes = {...this.state.notes}

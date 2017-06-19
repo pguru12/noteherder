@@ -2,9 +2,15 @@ import React from 'react'
 
 import './SignIn.css'
 
-const SignIn = () => {
+const SignIn = ({authHandler}) => {
+    const authenticate = () => {
+        authenticate({
+            
+        })
+    }
+
     return (
-        <button className="SignIn">Sign In</button>
+        <button className="SignIn" onClick={authenticate}>Sign In</button>
     )
 }
 

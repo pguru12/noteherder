@@ -45,17 +45,30 @@ componentWillMount(){
   }
 
   signedIn = () => {
-    return false
+    return this.state.uid
+  }
+
+  signOut = () => {
+    this.setState({ uid: null })
+  }
+
+  authHander = (user) => {
+    this.setState({ uid: user.uid })
   }
 
   renderMain=()=>{
-    return <Main notes={this.state.notes} saveNote={this.saveNote}/>
+    return (
+    <div>
+      
+    <Main notes={this.state.notes} saveNote={this.saveNote}/>
+    </div>
+    )
   }
 
   render() {
     return (
       <div className="App">
-        { this.signedIn() ? this.renderMain() : <SignIn /> }
+        { this.signedIn() ? this.renderMain() : <SignIn authHander={this.authHander}/> }
       </div>
     );
   }

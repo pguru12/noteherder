@@ -25,13 +25,8 @@ class NoteForm extends Component {
      this.setState({note}, ()=>this.props.saveNote(this.state.note))
     }
 
-    handleSubmit = (ev) => {
-      ev.preventDefault()
-      this.setState({note})
-    }
-
     handleRemove = (ev) => {
-      this.props.removeNote(this.state.note)
+      this.props.removeNote(this.props.currentNote)
     }
 
     render(){

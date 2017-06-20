@@ -47,7 +47,7 @@ componentWillMount(){
   removeNote = (note) => {
     const notes = {...this.state.notes}
     notes[note.id] = null
-    this.setState({ notes })
+    this.setState({ notes }, ()=>this.resetCurrentNote)
   }
 
   signedIn = () => {
@@ -67,9 +67,21 @@ componentWillMount(){
     )
   }
 
+  setCurrentNote = () => {
+
+  }
+
+  resetCurrentNote = () => {
+    this.setCurrentNote(note)
+  }
+
   signOut = () => {
-    auth.signOut().
-    then(()=>{base.removeBinding(this.ref)this.setState({})})
+    auth.
+    signOut().
+    then(
+      ()=>{
+        base.removeBinding(this.ref)
+        .setState({})})
   }
 
   authHander = (user) => {

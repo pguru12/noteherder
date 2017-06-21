@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Route, Switch, Redirect} from 'react-router-dom';
+
 import logo from './logo.svg';
 import './App.css';
 import Sidebar from './Sidebar'
@@ -103,13 +105,14 @@ componentWillMount(){
     )
   }
 
-  render() {
     return (
-      <div className="App">
-        { this.signedIn() ? this.renderMain() : <SignIn authHander={this.authHander}/> }
-      </div>
-    );
-  }
+      // <div className="App">
+      //   <Switch>
+      //     <Route path="/notes" render={()=>(<Main {...noteData}{...actions}/>)} />
+      //     <Route path="sign-in" component={SignIn}/>
+      //     <Route render={()=><Redirect to="/notes"/>}/>
+      //   </Switch>
+      // </div>
+    )
 }
-
 export default App;

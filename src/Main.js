@@ -10,8 +10,12 @@ const Main = (props) => {
         <nav className="Sidebar">
         <div className="Main">
             <Sidebar/>
-            <NoteList notes={props.notes}/>
+            <NoteList notes={props.notes} setCurrentNote={props.setCurrentNote}/>
             <NoteForm saveNote={props.saveNote}/>
+            <Switch>
+                <Range />
+                <Range />
+            </Switch>
         </div>
         </nav>
     )

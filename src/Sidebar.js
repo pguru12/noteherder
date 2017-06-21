@@ -10,10 +10,12 @@ const Sidebar = () =>{
             <div className="logo">
                 <img src={quill} alt="Noteherder"/>
             </div>
+            <Link to="/notes">
             <button className="new-note">
                 <img src={newHover} alt="New note"/>
                 <img className="outline" src={newIcon} alt="New note"/>
             </button>
+            </Link>
         </nav>
     )
 }
